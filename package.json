@@ -6,6 +6,9 @@
   "bugs": {
     "url": "https://github.com/Dmitriy1452/frontend-project-44/issues"
   },
+  "bin": {
+   "brain-games": "bin/brain-games.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dmitriy1452/frontend-project-44.git"
