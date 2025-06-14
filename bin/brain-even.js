@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { getName, isEven } from '../src/engine.js';
+import { getName, checkIfEven } from '../src/engine.js';
 
 console.log('Welcome to the Brain Games!');
 
-const name = getName();
+export const name = getName();
 console.log(`Hello, ${name}!`);
-const evenNumber = isEven();
+const evenNumber = checkIfEven();
 console.log(evenNumber);
