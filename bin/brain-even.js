@@ -3,7 +3,6 @@ import { getName, checkIfEven } from '../src/engine.js';
 
 console.log('Welcome to the Brain Games!');
 
-export const name = getName();
+const name = getName();
 console.log(`Hello, ${name}!`);
-const evenNumber = checkIfEven();
-console.log(evenNumber);
+console.log(checkIfEven(name));

@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import { name } from '../bin/brain-even.js';
 
 export const getName = () => {
     const askForName = readlineSync.question('May i have your name? ');
@@ -8,7 +7,7 @@ export const getName = () => {
 
 const isEven = (num) => (num % 2 === 0) ? 'yes' : 'no'
 
-export const checkIfEven = () => {
+export const checkIfEven = (userName) => {
     let i = 3
 
     while (i > 0) { 
@@ -20,10 +19,10 @@ export const checkIfEven = () => {
         ).toLowerCase().trim();
     
     if (question !== correctAnswer) {
-        return `'${question}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${name}!`;
+        return `'${question}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}!`;
     }
     console.log('Correct!');
     i -= 1;
     }
-    return `Congratulations, ${name}!`;
+    return `Congratulations, ${userName}!`;
 };
