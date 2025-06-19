@@ -1,28 +1,27 @@
-import readlineSync from 'readline-sync';
-
-export const getName = () => {
-    const askForName = readlineSync.question('Welcome to the Brain Games!\nMay i have your name? ');
-    return askForName;
-};
+import { getName, isGameWon, getExpression, greeting } from '../index.js'
 
 const isEven = (num) => (num % 2 === 0) ? 'yes' : 'no'
 
-export const checkIfEven = (userName) => {
-    let i = 3
+export const checkIfEven = () => {
+    const name = getName();
+    console.log(greeting(name));
+
+    let i = 3;
+    let isWon = true;
 
     while (i > 0) { 
-        const randomNumber =  Math.round(Math.random() * 100);
+        const randomNumber =  Math.round((Math.random() * 100) + 1);
         const correctAnswer = isEven(randomNumber);
         
-        const question = readlineSync.question(
-            `Answer "yes" if the number is even, otherwise answer "no".\nQuestion: ${randomNumber}\nYour answer: `
-        ).toLowerCase().trim();
+        const question = getExpression(randomNumber);
     
-    if (question !== correctAnswer) {
-        return `'${question}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${userName}!`;
+        if (question !== correctAnswer) {
+            console.log(`'${question}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+            isWon = false;
+            break; 
+        }
+        console.log('Correct!');
+        i -= 1;
     }
-    console.log('Correct!');
-    i -= 1;
-    }
-    return `Congratulations, ${userName}!`;
+    isGameWon(isWon, name);
 };
