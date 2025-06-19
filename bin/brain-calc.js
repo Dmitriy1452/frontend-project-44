@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-console.log('TEST');
+import { getName, isGameWon } from '../src/index.js';
+
+getName();
