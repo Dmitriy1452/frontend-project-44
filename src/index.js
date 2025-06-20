@@ -7,6 +7,8 @@ export const getName = () => {
 
 export const greeting = (userName) => `Hello, ${userName}!`;
 
+export const ranNum = () => Math.round((Math.random() * 100) + 1);
+
 export const getExpression = (num) => readlineSync.question(`Question: ${num}\nYour answer: `).toLowerCase().trim();
 
 export const isGameWon = (question, correctAnswer) => {
