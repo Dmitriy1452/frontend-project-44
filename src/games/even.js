@@ -1,4 +1,4 @@
-import { getName, isGameWon, getExpression, greeting } from '../index.js'
+import { getName, isGameWon, getExpression, greeting, ranNum } from '../index.js'
 
 const isEven = (num) => (num % 2 === 0) ? 'yes' : 'no'
 
@@ -10,7 +10,7 @@ export const checkIfEven = () => {
     let i = 3;
 
     while (i > 0) { 
-        const randomNumber =  Math.round((Math.random() * 100) + 1);
+        const randomNumber = ranNum();
         
         const correctAnswer = isEven(randomNumber);
         const question = getExpression(randomNumber);
