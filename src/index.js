@@ -5,14 +5,19 @@ export const getName = () => {
     return askForName;
 };
 
-export const greeting = (userName) => `Hello, ${userName}!\nAnswer "yes" if the number is even, otherwise answer "no".`;
-
-export const isGameWon = (flag, name) => {
-    if (flag === true) {
-        console.log(`Congratulations, ${name}!`);
-    } else {
-        console.log(`Let's try again, ${name}!`);
-    }
-}; 
+export const greeting = (userName) => `Hello, ${userName}!`;
 
 export const getExpression = (num) => readlineSync.question(`Question: ${num}\nYour answer: `).toLowerCase().trim();
+
+export const isGameWon = (question, correctAnswer) => {
+    if (question !== correctAnswer) {
+        return {
+            isCorrect: false,
+            message: `'${question}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
+        };
+    }
+    return {
+        isCorrect: true,
+        message: 'Correct!',
+    };
+};

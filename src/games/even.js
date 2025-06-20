@@ -5,23 +5,25 @@ const isEven = (num) => (num % 2 === 0) ? 'yes' : 'no'
 export const checkIfEven = () => {
     const name = getName();
     console.log(greeting(name));
+    console.log(`Answer "yes" if the number is even, otherwise answer "no".`);
 
     let i = 3;
-    let isWon = true;
 
     while (i > 0) { 
         const randomNumber =  Math.round((Math.random() * 100) + 1);
-        const correctAnswer = isEven(randomNumber);
         
+        const correctAnswer = isEven(randomNumber);
         const question = getExpression(randomNumber);
-    
-        if (question !== correctAnswer) {
-            console.log(`'${question}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-            isWon = false;
-            break; 
+
+        const result = isGameWon(question, correctAnswer);
+        console.log(result.message);
+        
+        if (!result.isCorrect) {
+            console.log(`Let's try again, ${name}!`);
+            return;
         }
-        console.log('Correct!');
+
         i -= 1;
     }
-    isGameWon(isWon, name);
+    console.log(`Congratulations, ${name}!`);
 };
