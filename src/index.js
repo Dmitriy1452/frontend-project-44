@@ -23,3 +23,20 @@ export const isGameWon = (question, correctAnswer) => {
         message: 'Correct!',
     };
 };
+
+/* export const mainRules = (question, correctAnswer) => {   
+    const name = getName();
+
+    for (let i = 3; i > 0; i -= 1) {
+        const userAnswer = getExpression(question);
+
+        if (userAnswer === correctAnswer) {
+            console.log('Correct!');
+        } else {
+            return `'${userAnswer}' is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`;
+        }
+    }
+    console.log(`Congratulations, ${name}!`);
+
+
+}; */
