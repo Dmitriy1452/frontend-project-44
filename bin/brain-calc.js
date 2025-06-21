@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { getName, isGameWon } from '../src/index.js';
+import { calculating } from '../src/games/calc.js';
 
-getName();
+calculating();
