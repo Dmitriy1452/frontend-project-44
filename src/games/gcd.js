@@ -22,7 +22,7 @@ const hasGcd = (num1, num2) => {
 const getGcd = () => {
     const name = getName();
     console.log(greeting(name));
-    console.log('Find the greatest common divisor of giben numbers.');
+    console.log('Find the greatest common divisor of given numbers.');
 
     for (let i = 3; i > 0; i -= 1) {
         const firstNumber = ranNum();
