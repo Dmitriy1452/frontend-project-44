@@ -20,7 +20,7 @@ const progression = (start, step, hiddenNum) => {
 export const getProgression = () => {
     const name = getName();
     console.log(greeting(name));
-    console.log('What number is missing in progression?');
+    console.log('What number is missing in the progression?');
 
     for (let i = 3; i > 0; i -= 1) {
         const start = ranNum();
