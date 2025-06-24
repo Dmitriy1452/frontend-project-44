@@ -40,7 +40,7 @@ const getGcd = () => {
             return;
         }
     }
-    console.log(`Congratulations, ${name}`);
+    console.log(`Congratulations, ${name}!`);
 };
 
 export default getGcd;
