@@ -25,7 +25,7 @@ export const getProgression = () => {
     for (let i = 3; i > 0; i -= 1) {
         const start = ranNum();
         const step = Math.round((Math.random() * 10) + 1);
-        const hiddenNumber = Math.round((Math.random() * 10) + 1);
+        const hiddenNumber = Math.round(Math.random() * 10);
         
         const result = progression(start, step, hiddenNumber);
         const question = getExpression(result.expression);
