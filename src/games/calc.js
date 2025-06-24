@@ -36,5 +36,5 @@ export const calculating = () => {
             return;
         }
     }
-    console.log(`Congratulations ${name}!`);
+    console.log(`Congratulations, ${name}!`);
 };
