@@ -14,7 +14,7 @@ const expression = (operator, num1, num2) => {
 export const calculating = () => {
     const name = getName();
     console.log(greeting(name));
-    console.log('What is result of the expression?');
+    console.log('What is the result of the expression?');
 
     const operators = ['+', '-', '*'];
 
