@@ -23,7 +23,7 @@ const gameDescription = 'What number is missing in the progression?'
 export const getProgression = () => {
   const start = ranNum(1, 100)
   const step = ranNum(1, 10)
-  const hiddenNum = ranNum(0, 9)
+  const hiddenNum = ranNum(0, 8)
 
   const question = progression(start, step, hiddenNum)
   const correctAnswer = question.answer.toString()
