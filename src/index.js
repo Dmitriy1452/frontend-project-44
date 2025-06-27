@@ -13,7 +13,7 @@ export const mainRules = (gameRules, gameDescription) => {
     const userAnswer = (getExpression(result.question))
 
     if (userAnswer !== result.correctAnswer) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${result.correctAnswer}'\nLet's try againg, ${name}!`)
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${result.correctAnswer}'\nLet's try again, ${name}!`)
       return
     }
     console.log('Correct!')
