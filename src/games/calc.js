@@ -1,4 +1,5 @@
-import { getName, greeting, getExpression, isGameWon, ranNum } from '../index.js'
+import { mainRules } from '../index.js'
+import { ranNum } from '../math-operations.js'
 
 const expression = (operator, num1, num2) => {
   switch (operator) {
@@ -11,30 +12,23 @@ const expression = (operator, num1, num2) => {
   }
 }
 
-export const calculating = () => {
-  const name = getName()
-  console.log(greeting(name))
-  console.log('What is the result of the expression?')
+const gameDescription = 'What is the result of the expression?'
 
+export const calculating = () => {
   const operators = ['+', '-', '*']
 
-  for (let i = 3; i > 0; i -= 1) {
-    const index = Math.floor(Math.random() * operators.length)
-    const ranOperator = operators[index]
-    const firstNumber = ranNum()
-    const secondNumber = ranNum()
-    const randomExp = `${firstNumber} ${ranOperator} ${secondNumber}`
+  const firstNumber = ranNum(1, 100)
+  const secondNumber = ranNum(1, 50)
+  const index = ranNum(0, 1)
+  const randOper = operators[index]
 
-    const question = (getExpression(randomExp))
-    const correctAnswer = expression(ranOperator, firstNumber, secondNumber).toString()
+  const question = `${firstNumber} ${randOper} ${secondNumber}`
+  const answer = expression(randOper, firstNumber, secondNumber).toString()
 
-    const result = isGameWon(question, correctAnswer)
-    console.log(result.message)
-
-    if (!result.isCorrect) {
-      console.log(`Let's try again, ${name}!`)
-      return
-    }
+  return {
+    question: question,
+    correctAnswer: answer,
   }
-  console.log(`Congratulations, ${name}!`)
 }
+
+mainRules(calculating, gameDescription)

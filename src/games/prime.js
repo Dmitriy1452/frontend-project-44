@@ -1,4 +1,5 @@
-import { getName, isGameWon, getExpression, greeting } from '../index.js'
+import { mainRules } from '../index.js'
+import { ranNum } from '../math-operations.js'
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -21,23 +22,18 @@ const isPrime = (num) => {
   return 'yes'
 }
 
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"'
+
 export const getPrimeNumber = () => {
-  const name = getName()
-  console.log(greeting(name))
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no"')
+  const randomNumber = ranNum(1, 50)
 
-  for (let i = 3; i > 0; i -= 1) {
-    const getRandomNum = Math.round((Math.random() * 25) + 1)
-    const question = getExpression(getRandomNum)
-    const correctAnswer = isPrime(getRandomNum)
+  const question = randomNumber
+  const correctAnswer = isPrime(randomNumber)
 
-    const result = isGameWon(question, correctAnswer)
-    console.log(result.message)
-
-    if (!result.isCorrect) {
-      console.log(`Let's try again, ${name}!`)
-      return
-    }
+  return {
+    question: question,
+    correctAnswer: correctAnswer,
   }
-  console.log(`Congratulations, ${name}!`)
 }
+
+mainRules(getPrimeNumber, gameDescription)

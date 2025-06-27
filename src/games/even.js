@@ -1,29 +1,20 @@
-import { getName, isGameWon, getExpression, greeting, ranNum } from '../index.js'
+import { mainRules } from '../index.js'
+import { ranNum } from '../math-operations.js'
 
 const isEven = num => (num % 2 === 0) ? 'yes' : 'no'
 
+const gameDescription = (`Answer "yes" if the number is even, otherwise answer "no".`)
+
 export const checkIfEven = () => {
-  const name = getName()
-  console.log(greeting(name))
-  console.log(`Answer "yes" if the number is even, otherwise answer "no".`)
+  const randomNumber = ranNum(1, 100)
 
-  let i = 3
+  const question = randomNumber
+  const correctAnswer = isEven(randomNumber)
 
-  while (i > 0) {
-    const randomNumber = ranNum()
-
-    const correctAnswer = isEven(randomNumber)
-    const question = getExpression(randomNumber)
-
-    const result = isGameWon(question, correctAnswer)
-    console.log(result.message)
-
-    if (!result.isCorrect) {
-      console.log(`Let's try again, ${name}!`)
-      return
-    }
-
-    i -= 1
+  return {
+    question: question,
+    correctAnswer: correctAnswer,
   }
-  console.log(`Congratulations, ${name}!`)
 }
+
+mainRules(checkIfEven, gameDescription)

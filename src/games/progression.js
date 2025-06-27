@@ -1,4 +1,5 @@
-import { getName, isGameWon, getExpression, greeting, ranNum } from '../index.js'
+import { mainRules } from '../index.js'
+import { ranNum } from '../math-operations.js'
 
 const progression = (start, step, hiddenNum) => {
   const progrCount = 10
@@ -17,28 +18,20 @@ const progression = (start, step, hiddenNum) => {
   }
 }
 
+const gameDescription = 'What number is missing in the progression?'
+
 export const getProgression = () => {
-  const name = getName()
-  console.log(greeting(name))
-  console.log('What number is missing in the progression?')
+  const start = ranNum(1, 100)
+  const step = ranNum(1, 10)
+  const hiddenNum = ranNum(1, 9)
 
-  for (let i = 3; i > 0; i -= 1) {
-    const start = ranNum()
-    const step = Math.round((Math.random() * 10) + 1)
-    const hiddenNumber = Math.round(Math.random() * 9)
+  const question = progression(start, step, hiddenNum)
+  const correctAnswer = question.answer.toString()
 
-    const result = progression(start, step, hiddenNumber)
-
-    const question = getExpression(result.expression)
-    const correctAnswer = result.answer.toString()
-
-    const endGame = isGameWon(question, correctAnswer)
-    console.log(endGame.message)
-
-    if (!endGame.isCorrect) {
-      console.log(`Let's try again, ${name}!`)
-      return
-    }
+  return {
+    question: question.expression,
+    correctAnswer: correctAnswer,
   }
-  console.log(`Congratulations, ${name}!`)
 }
+
+mainRules(getProgression, gameDescription)

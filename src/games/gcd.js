@@ -1,4 +1,5 @@
-import { getName, isGameWon, getExpression, greeting, ranNum } from '../index.js'
+import { mainRules } from '../index.js'
+import { ranNum } from '../math-operations.js'
 
 const hasGcd = (num1, num2) => {
   const min = (num1 > num2) ? num2 : num1
@@ -19,28 +20,19 @@ const hasGcd = (num1, num2) => {
   return a
 }
 
-const getGcd = () => {
-  const name = getName()
-  console.log(greeting(name))
-  console.log('Find the greatest common divisor of given numbers.')
+const gameDescription = 'Find the greatest common divisor of given numbers.'
 
-  for (let i = 3; i > 0; i -= 1) {
-    const firstNumber = ranNum()
-    const secondNumber = ranNum()
-    const randomExp = `${firstNumber} ${secondNumber}`
+export const getGcd = () => {
+  const firstNumber = ranNum(1, 100)
+  const secondNumber = ranNum(1, 100)
 
-    const question = getExpression(randomExp)
-    const correctAnswer = hasGcd(firstNumber, secondNumber).toString()
+  const question = `${firstNumber} ${secondNumber}`
+  const correctAnswer = hasGcd(firstNumber, secondNumber).toString()
 
-    const result = isGameWon(question, correctAnswer)
-    console.log(result.message)
-
-    if (!result.isCorrect) {
-      console.log(`Let's try again, ${name}!`)
-      return
-    }
+  return {
+    question: question,
+    correctAnswer: correctAnswer,
   }
-  console.log(`Congratulations, ${name}!`)
 }
 
-export default getGcd
+mainRules(getGcd, gameDescription)
